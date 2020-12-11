@@ -7,7 +7,10 @@
     :default-active="activePath"
   >
     <template v-for="item in routerList">
-      <el-menu-item :key="item.path" v-if="!item.hidden" :index="item.redirect">
+      <el-menu-item
+        v-if="!item.hidden"
+        :index="item.redirect"
+      >
         {{ item.name }}
       </el-menu-item>
     </template>
@@ -23,8 +26,8 @@ export default {
     },
     activePath() {
       return this.$route.fullPath;
-    }
-  }
+    },
+  },
 };
 </script>
 
