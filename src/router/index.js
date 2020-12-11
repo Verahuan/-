@@ -1,19 +1,17 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
+import { createRouter, createWebHistory } from 'vue-router'
 import Layout from "@/layout";
 
-Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/login",
     component: () => import("@/views/login"),
-    hidden: true
+    hidden: true,
   },
   {
     path: "/404",
     component: () => import("@/views/404"),
-    hidden: true
+    hidden: true,
   },
   {
     path: "/",
@@ -24,9 +22,9 @@ const routes = [
     children: [
       {
         path: "home",
-        component: () => import("@/views/Home")
-      }
-    ]
+        component: () => import("@/views/Home"),
+      },
+    ],
   },
   {
     path: "/userinfo",
@@ -37,9 +35,9 @@ const routes = [
     children: [
       {
         path: "index",
-        component: () => import("@/views/userInfo/index")
-      }
-    ]
+        component: () => import("@/views/userInfo/index"),
+      },
+    ],
   },
   {
     path: "/trainning",
@@ -49,9 +47,9 @@ const routes = [
     children: [
       {
         path: "index",
-        component: () => import("@/views/trainning/index")
-      }
-    ]
+        component: () => import("@/views/trainning/index"),
+      },
+    ],
   },
   {
     path: "/exam",
@@ -61,9 +59,9 @@ const routes = [
     children: [
       {
         path: "index",
-        component: () => import("@/views/exam/index")
-      }
-    ]
+        component: () => import("@/views/exam/index"),
+      },
+    ],
   },
   {
     path: "/system",
@@ -73,17 +71,16 @@ const routes = [
     children: [
       {
         path: "index",
-        component: () => import("@/views/system/index")
-      }
-    ]
+        component: () => import("@/views/system/index"),
+      },
+    ],
   },
-  { path: "*", redirect: "/404", hidden: true }
+  // { path: "/*", redirect: "/404", hidden: true },
 ];
 
-const router = new VueRouter({
-  mode: "history",
-  base: process.env.BASE_URL,
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
   routes
-});
+})
 
 export default router;
