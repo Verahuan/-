@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import Layout from "@/layout";
 
 
@@ -40,14 +40,14 @@ const routes = [
     ],
   },
   {
-    path: "/trainning",
+    path: "/training",
     name: "培训中心",
-    redirect: "/trainning/index",
+    redirect: "/training/index",
     component: Layout,
     children: [
       {
         path: "index",
-        component: () => import("@/views/trainning/index"),
+        component: () => import("@/views/training/index"),
       },
     ],
   },
@@ -79,7 +79,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history:createWebHashHistory(process.env.BASE_URL),
   routes
 })
 
